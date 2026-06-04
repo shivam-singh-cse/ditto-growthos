@@ -6,7 +6,7 @@ export function Sidebar() {
   const links = [
     { name: "Dashboard", href: "/", icon: LayoutDashboard },
     { name: "Influencers", href: "/influencers", icon: Users },
-    { name: "Activations", href: "/activations", icon: Zap },
+    { name: "Campaigns", href: "/campaigns", icon: Zap },
     { name: "Attribution", href: "/attribution", icon: LinkIcon },
     { name: "Reporting", href: "/reporting", icon: BarChart3 },
     { name: "Automations", href: "/automations", icon: ShieldAlert },

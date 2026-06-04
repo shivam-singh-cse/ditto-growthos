@@ -47,7 +47,9 @@ interface AppState {
 interface AppContextType extends AppState {
   refreshData: () => Promise<void>;
   updateInfluencerStatus: (id: string, status: string) => Promise<void>;
-  login: (email: string) => Promise<void>;
+  login: (email: string, pass: string) => Promise<void>;
+  addInfluencer: () => Promise<void>;
+  addCampaign: () => Promise<void>;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -129,8 +131,43 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const addInfluencer = async () => {
+    const name = prompt("Enter influencer name:");
+    if (!name) return;
+    const email = prompt("Enter influencer email:");
+    const { error } = await supabase.from("influencers").insert([{ 
+      name, 
+      email: email || "unknown@example.com",
+      platform: "Instagram",
+      category: "Finance",
+      followers: 10000,
+      engagement_rate: 2.5,
+      phone: "0000000000",
+      status: "Sourced",
+      owner_id: state.user?.id
+    }]);
+    if (error) alert("Error adding influencer: " + error.message);
+    else { alert("Influencer added!"); await refreshData(); }
+  };
+
+  const addCampaign = async () => {
+    const product = prompt("Enter product (Health, Term, Both):", "Health");
+    if (!product) return;
+    const budgetStr = prompt("Enter budget in INR:", "50000");
+    const { error } = await supabase.from("campaigns").insert([{
+      influencer_id: state.influencers[0]?.influencer_id, // Default to first influencer for quick add
+      product,
+      content_type: "LinkedIn Post",
+      budget: parseInt(budgetStr || "50000"),
+      campaign_status: "Draft",
+      approval_status: "Pending"
+    }]);
+    if (error) alert("Error adding campaign: " + error.message);
+    else { alert("Activation campaign added!"); await refreshData(); }
+  };
+
   return (
-    <AppContext.Provider value={{ ...state, refreshData, updateInfluencerStatus, login }}>
+    <AppContext.Provider value={{ ...state, refreshData, updateInfluencerStatus, login, addInfluencer, addCampaign }}>
       {state.loading ? (
         <div className="h-screen w-full flex items-center justify-center">Loading Data...</div>
       ) : !state.user ? (
