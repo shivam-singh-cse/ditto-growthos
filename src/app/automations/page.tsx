@@ -4,7 +4,7 @@ import { useAppStore } from "@/lib/store";
 import { ShieldAlert, Clock, RefreshCw, Mail } from "lucide-react";
 
 export default function AutomationsPage() {
-  const { influencers, communications } = useAppStore();
+  const { influencers } = useAppStore();
 
   const rules = [
     { title: "Duplicate Prevention", desc: "Block entry if Email, Phone, or IG handle exists.", status: "Active", icon: ShieldAlert, color: "blue" },
