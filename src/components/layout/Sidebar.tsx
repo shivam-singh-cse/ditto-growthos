@@ -14,7 +14,7 @@ export function Sidebar() {
   ];
 
   return (
-    <div className="w-64 bg-white border-r border-[var(--color-border-default)] flex flex-col h-screen sticky top-0 shrink-0">
+    <div className="hidden md:flex w-64 bg-white border-r border-[var(--color-border-default)] flex-col h-screen sticky top-0 shrink-0">
       <div className="h-16 flex items-center px-6 border-b border-[var(--color-border-default)]">
         <div className="font-bold text-lg tracking-tight text-[var(--color-surface-base)]">
           Ditto<span className="text-[#10b981]">OS</span>

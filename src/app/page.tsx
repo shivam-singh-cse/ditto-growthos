@@ -64,7 +64,7 @@ export default function Dashboard() {
       </div>
 
       {aiSummary && (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-green-50 border border-green-200 rounded-xl p-5 shadow-sm">
             <h3 className="font-bold text-green-900 mb-3 flex items-center gap-2">SCALE Recommendations</h3>
             <div className="space-y-3">
@@ -100,7 +100,7 @@ export default function Dashboard() {
         </div>
       )}
       
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {metrics.map((m) => (
           <div key={m.label} className="bg-white p-5 rounded-xl border border-[var(--color-border-default)] shadow-sm">
             <div className="text-[13px] font-medium text-[var(--color-text-secondary)] mb-1">{m.label}</div>
@@ -109,8 +109,8 @@ export default function Dashboard() {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl border border-[var(--color-border-default)] p-6 shadow-sm">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white rounded-xl border border-[var(--color-border-default)] p-6 shadow-sm overflow-x-auto">
           <h3 className="font-semibold mb-4">Granular Performance (Top Combinations)</h3>
           <div className="space-y-3">
             {granularData.sort((a,b) => b.roi - a.roi).slice(0, 5).map((d, i) => (

@@ -55,7 +55,7 @@ export default function ReportingPage() {
 
       {view === "Manager" && (
         <div className="space-y-6">
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-white p-5 rounded-xl border border-[var(--color-border-default)] shadow-sm">
               <div className="flex items-center gap-2 text-[var(--color-text-secondary)] mb-2">
                 <Users size={16} /> <span className="text-[13px] font-medium">Pipeline Health</span>
@@ -71,8 +71,8 @@ export default function ReportingPage() {
               <div className="text-xs text-[var(--color-text-secondary)] mt-1">Pending response</div>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl border border-[var(--color-border-default)] p-6 shadow-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-xl border border-[var(--color-border-default)] p-6 shadow-sm overflow-x-auto">
               <h3 className="font-semibold mb-4 text-red-600 flex items-center gap-2"><AlertTriangle size={18} /> Stuck Influencers</h3>
               <div className="space-y-3">
                 {influencers.filter(i => i.status === "Negotiation").map(inf => (
@@ -112,7 +112,7 @@ export default function ReportingPage() {
 
       {view === "VP" && (
         <div className="space-y-6">
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-white p-5 rounded-xl border border-[var(--color-border-default)] shadow-sm">
               <div className="flex items-center gap-2 text-[var(--color-text-secondary)] mb-2">
                 <Target size={16} /> <span className="text-[13px] font-medium">Total Spend</span>
@@ -127,8 +127,8 @@ export default function ReportingPage() {
             </div>
           </div>
           
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-white rounded-xl border border-[var(--color-border-default)] p-6 shadow-sm">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-xl border border-[var(--color-border-default)] p-6 shadow-sm overflow-x-auto">
               <h3 className="font-semibold mb-4">Product Performance Allocation</h3>
               <div className="space-y-4">
                 {["Health", "Term", "Both"].map(product => {
@@ -172,7 +172,7 @@ export default function ReportingPage() {
 
       {view === "Founder" && (
         <div className="space-y-6">
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-[#111] text-white p-6 rounded-xl shadow-sm">
               <div className="text-sm font-medium text-gray-400 mb-1">Total Revenue Generated</div>
               <div className="text-3xl font-bold">₹{performance.reduce((sum, p) => sum + (p.premium_revenue || 0), 0).toLocaleString()}</div>
@@ -199,7 +199,7 @@ export default function ReportingPage() {
               {!summary ? (
                 <div className="text-center py-8 text-gray-500 italic">Click generate to run the weekly board-level AI analysis.</div>
               ) : (
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div>
                     <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2"><CheckCircle2 size={16} /> Biggest Wins</h4>
                     <ul className="space-y-3">

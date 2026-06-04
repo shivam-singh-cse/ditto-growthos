@@ -25,7 +25,7 @@ export default function AutomationsPage() {
         </button>
       </div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {rules.map((rule) => {
           const Icon = rule.icon;
           return (

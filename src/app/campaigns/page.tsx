@@ -40,7 +40,7 @@ export default function CampaignsPage() {
         </button>
       </div>
       
-      <div className="bg-white rounded-xl border border-[var(--color-border-default)] shadow-sm overflow-hidden">
+      <div className="bg-white rounded-xl border border-[var(--color-border-default)] shadow-sm overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="bg-[var(--color-surface-strong)] border-b border-[var(--color-border-default)]">

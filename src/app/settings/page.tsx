@@ -29,7 +29,7 @@ export default function SettingsPage() {
       <div className="bg-white rounded-xl border border-[var(--color-border-default)] p-6 shadow-sm space-y-6">
         <div>
           <h3 className="font-semibold mb-4">Export Data</h3>
-          <div className="flex items-center justify-between p-4 border border-[var(--color-border-default)] rounded-lg">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 p-4 border border-[var(--color-border-default)] rounded-lg">
             <div>
               <div className="font-medium text-sm">Download Influencer Database</div>
               <div className="text-xs text-[var(--color-text-secondary)] mt-1 max-w-sm">
@@ -47,7 +47,7 @@ export default function SettingsPage() {
 
         <div>
           <h3 className="font-semibold mb-4">Import Data</h3>
-          <div className="flex items-center justify-between p-4 border border-[var(--color-border-default)] rounded-lg">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 p-4 border border-[var(--color-border-default)] rounded-lg">
             <div>
               <div className="font-medium text-sm">Bulk Import</div>
               <div className="text-xs text-[var(--color-text-secondary)] mt-1 max-w-sm">
